@@ -25,6 +25,7 @@ WORKDIR /projects
 RUN git clone https://github.com/mirage/irmin.git
 WORKDIR /projects/irmin
 RUN git checkout 8da4d16e7cc8beddfc8a824feca325426bae08a9
+COPY ./bench/irmin/* . # copy lockfiles
 RUN sudo apt install -y gnuplot-x11 libgmp-dev pkg-config libffi-dev
 RUN opam install . --deps-only --with-test --no-checksums
 RUN opam exec -- dune build

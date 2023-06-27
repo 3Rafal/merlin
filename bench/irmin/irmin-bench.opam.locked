@@ -1,0 +1,100 @@
+opam-version: "2.0"
+name: "irmin-bench"
+version: "3.7.2"
+synopsis: "Irmin benchmarking suite"
+description: """\
+`irmin-bench` provides access to the Irmin suite for benchmarking storage backend
+implementations."""
+maintainer: "thomas@gazagnaire.org"
+authors: "Thomas Gazagnaire"
+license: "ISC"
+homepage: "https://github.com/mirage/irmin"
+doc: "https://mirage.github.io/irmin/"
+bug-reports: "https://github.com/mirage/irmin/issues"
+depends: [
+  "alcotest" {= "1.7.0" & with-test}
+  "alcotest-lwt" {= "1.7.0"}
+  "angstrom" {= "0.15.0"}
+  "astring" {= "0.8.5"}
+  "base-bigarray" {= "base"}
+  "base-bytes" {= "base"}
+  "base-domains" {= "base"}
+  "base-nnp" {= "base"}
+  "base-threads" {= "base"}
+  "base-unix" {= "base"}
+  "base64" {= "3.5.1"}
+  "bentov" {= "1"}
+  "bheap" {= "2.0.0"}
+  "bigstringaf" {= "0.9.1"}
+  "checkseum" {= "0.5.1"}
+  "cmdliner" {= "1.2.0"}
+  "conf-gmp" {= "4"}
+  "conf-gnuplot" {= "0.1"}
+  "cppo" {= "1.6.9"}
+  "csexp" {= "1.5.2"}
+  "cstruct" {= "6.2.0"}
+  "digestif" {= "1.1.4"}
+  "dune" {= "3.8.2"}
+  "dune-configurator" {= "3.8.2"}
+  "either" {= "1.0.0"}
+  "eqaf" {= "0.9"}
+  "fmt" {= "0.9.0"}
+  "fpath" {= "0.7.3" & with-test}
+  "index" {= "1.6.2"}
+  "irmin" {= "3.7.2"}
+  "irmin-pack" {= "3.7.2"}
+  "irmin-test" {= "3.7.2"}
+  "irmin-tezos" {= "3.7.2"}
+  "jsonm" {= "1.0.2"}
+  "logs" {= "0.7.0"}
+  "lru" {= "0.3.1"}
+  "lwt" {= "5.6.1"}
+  "metrics" {= "0.4.1"}
+  "metrics-unix" {= "0.4.1"}
+  "mtime" {= "2.0.0"}
+  "ocaml" {= "5.0.0"}
+  "ocaml-base-compiler" {= "5.0.0"}
+  "ocaml-compiler-libs" {= "v0.12.4"}
+  "ocaml-config" {= "3"}
+  "ocaml-options-vanilla" {= "1"}
+  "ocaml-syntax-shims" {= "1.0.0"}
+  "ocamlbuild" {= "0.14.2"}
+  "ocamlfind" {= "1.9.6"}
+  "ocamlgraph" {= "2.0.0"}
+  "ocplib-endian" {= "1.2"}
+  "optint" {= "0.3.0"}
+  "ppx_derivers" {= "1.2.1"}
+  "ppx_deriving" {= "5.2.1"}
+  "ppx_irmin" {= "3.7.2"}
+  "ppx_repr" {= "0.6.0"}
+  "ppxlib" {= "0.27.0"}
+  "printbox" {= "0.6.1"}
+  "printbox-text" {= "0.6.1"}
+  "progress" {= "0.2.2"}
+  "psq" {= "0.2.1"}
+  "re" {= "1.10.4"}
+  "repr" {= "0.6.0"}
+  "result" {= "1.5"}
+  "rusage" {= "1.0.0"}
+  "semaphore-compat" {= "1.0.1"}
+  "seq" {= "base"}
+  "sexplib0" {= "v0.15.1"}
+  "stdlib-shims" {= "0.3.0"}
+  "stringext" {= "1.6.0"}
+  "terminal" {= "0.2.2"}
+  "tezos-base58" {= "1.0.0"}
+  "topkg" {= "1.0.7"}
+  "uri" {= "4.2.0"}
+  "uucp" {= "15.0.0"}
+  "uuidm" {= "0.9.8"}
+  "uutf" {= "1.0.3"}
+  "vector" {= "1.0.0"}
+  "yojson" {= "2.1.0"}
+  "zarith" {= "1.12"}
+]
+available: arch != "arm32" & arch != "x86_32"
+build: [
+  ["dune" "subst"] {dev}
+  ["dune" "build" "-p" name "-j" jobs]
+]
+dev-repo: "git+https://github.com/mirage/irmin.git"
